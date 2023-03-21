@@ -4,3 +4,9 @@ installed django and drf
 
 ran: django-admin startproject config .
 added rest_framework to INSTALLED_APPS in config/settings.py
+
+ran: pipenv install django-environ
+added import environ and import os to settings.py
+-- did NOT finish settings setup yet. see:
+    https://django-environ.readthedocs.io/en/latest/quickstart.html
+
