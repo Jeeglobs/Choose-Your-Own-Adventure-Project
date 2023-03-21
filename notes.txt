@@ -10,3 +10,6 @@ added import environ and import os to settings.py
 -- did NOT finish settings setup yet. see:
     https://django-environ.readthedocs.io/en/latest/quickstart.html
 
+ran: pipenv install django-extensions
+added django_extensions to INSTALLED_APPS in settings.py
+
