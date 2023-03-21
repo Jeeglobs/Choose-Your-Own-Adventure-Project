@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db.models.constraints import UniqueConstraint
 
 # Create your models here.
 
@@ -24,7 +25,17 @@ class Book(models.Model):
     )
     date_published = models.DateField(blank=True, null=True)
     genre = models.CharField(choices=CHOICES, max_length=50)
+    featured = models.BooleanField(default=False)
+
+    class Meta:
+        constraints = [
+            UniqueConstraint(fields=['author', 'title'],
+                             name='unique_constraint')
+        ]
 
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
