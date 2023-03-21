@@ -14,3 +14,4 @@ added import environ and import os to settings.py
 ran: pipenv install django-extensions
 added django_extensions to INSTALLED_APPS in settings.py
 
+ran: python manage.py startapp cover
