@@ -41,10 +41,10 @@ CHECKLIST ITEMS COMPLETED:
     PROBLEMS:   user cannot add a new author
                 user can set 'featured'
 * list all featured books
-    PROBLEMS:   none really, but I tried using filters to solve the 'search books by     author or title', which worked, but I think I'm supposed to use search filter instead
+* search books by author or title
 
 CHECKLIST ITEMS STILL TO DO:
-* search books by author or title
+* create an author???
 * see a list of all the books they are tracking and their statuses
 * mark a book as want to read, reading, or finished
 * update the want to read/reading/finished status of a book
