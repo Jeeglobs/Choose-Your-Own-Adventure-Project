@@ -11,9 +11,16 @@ class User(AbstractUser):
 
 class Book(models.Model):
     CHOICES = (
+        ('art', 'Art'),
+        ('biography', 'Biography'),
+        ('business', 'Business'),
+        ('classics', 'Classics'),
         ('education', 'Education'),
         ('graphic novel', 'Graphic Novel'),
+        ('history', 'History'),
         ('horror', 'Horror'),
+        ('mystery', 'Mystery'),
+        ('philosophy', 'Philosophy'),
         ('romance', 'Romance'),
         ('thriller', 'Thriller'),
     )
