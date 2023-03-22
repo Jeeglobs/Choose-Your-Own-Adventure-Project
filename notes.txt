@@ -44,12 +44,13 @@ CHECKLIST ITEMS COMPLETED:
 * search books by author or title
 * ADMIN ONLY -- update a book (including 'featured' status)
 * ADMIN ONLY -- delete a book (this should not delete notes)
-
-CHECKLIST ITEMS STILL TO DO:
+*******************************************************************************
+*******************************************************************************
 * see a list of all the books they are tracking and their statuses
 * mark a book as want to read, reading, or finished
 * update the want to read/reading/finished status of a book
 * see a list of all their books by status
+    PROBLEMS:   need to add permissions for the four above
 
 OPTIONAL ITEMS STILL TO DO:
 * create an author???
