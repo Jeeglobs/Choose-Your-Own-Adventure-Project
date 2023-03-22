@@ -27,3 +27,4 @@ created Tracker Model and migrated
 -- updated admin.py file
 
 created core/serializers.py file
+created Serialzer for each Model in serializers.py
