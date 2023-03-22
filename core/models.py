@@ -31,7 +31,8 @@ class Book(models.Model):
         on_delete=models.CASCADE,
     )
     date_published = models.DateField(blank=True, null=True)
-    genre = models.CharField(choices=CHOICES, max_length=50)
+    genre = models.CharField(choices=CHOICES, max_length=100)
+    blurb = models.TextField(max_length=500, blank=True, null=True)
     featured = models.BooleanField(default=False)
 
     class Meta:
@@ -47,7 +48,7 @@ class Book(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=100)
     dob = models.DateField(blank=True, null=True)
-    bio = models.TextField(max_length=5000, blank=True, null=True)
+    bio = models.TextField(max_length=500, blank=True, null=True)
 
     def __str__(self):
         return self.name
