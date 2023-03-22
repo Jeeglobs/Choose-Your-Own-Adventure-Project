@@ -15,6 +15,7 @@ class Book(models.Model):
         ('business', 'Business'),
         ('classics', 'Classics'),
         ('education', 'Education'),
+        ('fantasy', 'Fantasy'),
         ('graphic novel', 'Graphic Novel'),
         ('history', 'History'),
         ('horror', 'Horror'),
