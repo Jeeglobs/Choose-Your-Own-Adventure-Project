@@ -29,14 +29,21 @@ created Tracker Model and migrated
 created core/serializers.py file
 created Serialzer for each Model in serializers.py
 
+ran: pipenv install django-filter
+added 'django-filters' to INSTALLED_APPS
+added (from django_filters.rest_framework import DjangoFilterBackend) to views.py
+
 
 CHECKLIST ITEMS COMPLETED:
 * list all books
 * retrieve details about a book
 * create a book
+    PROBLEMS:   user cannot add a new author
+                user can set 'featured'
+* list all featured books
+    PROBLEMS:   none really, but I tried using filters to solve the 'search books by     author or title', which worked, but I think I'm supposed to use search filter instead
 
 CHECKLIST ITEMS STILL TO DO:
-* list all featured books
 * search books by author or title
 * see a list of all the books they are tracking and their statuses
 * mark a book as want to read, reading, or finished
