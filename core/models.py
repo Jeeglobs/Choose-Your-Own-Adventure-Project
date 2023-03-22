@@ -24,6 +24,7 @@ class Book(models.Model):
         ('politics', 'Politics'),
         ('religion', 'Religion'),
         ('romance', 'Romance'),
+        ('sci-fi', 'Sci-Fi'),
         ('thriller', 'Thriller'),
         ('other', 'Other'),
     )
