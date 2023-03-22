@@ -28,3 +28,25 @@ created Tracker Model and migrated
 
 created core/serializers.py file
 created Serialzer for each Model in serializers.py
+
+
+CHECKLIST ITEMS COMPLETED:
+* list all books
+
+CHECKLIST ITEMS STILL TO DO:
+* list all featured books
+* create a book
+* retrieve details about a book
+* search books by author or title
+* see a list of all the books they are tracking and their statuses
+* mark a book as want to read, reading, or finished
+* update the want to read/reading/finished status of a book
+* see a list of all their books by status
+* ADMIN ONLY -- update a book (including 'featured' status)
+* ADMIN ONLY -- delete a book (this should not delete notes)
+
+OPTIONAL ITEMS STILL TO DO:
+* retrieve all their own private notes for a book
+* retrieve all publice notes for a book
+* create a note for a book
+* edit their own notes
