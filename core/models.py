@@ -9,6 +9,7 @@ class User(AbstractUser):
 
 class Book(models.Model):
     CHOICES = (
+        ('', ''),
         ('art', 'Art'),
         ('biography', 'Biography'),
         ('business', 'Business'),
@@ -17,11 +18,14 @@ class Book(models.Model):
         ('graphic novel', 'Graphic Novel'),
         ('history', 'History'),
         ('horror', 'Horror'),
+        ('kids lit', 'Kids Lit'),
         ('mystery', 'Mystery'),
         ('philosophy', 'Philosophy'),
+        ('politics', 'Politics'),
         ('religion', 'Religion'),
         ('romance', 'Romance'),
         ('thriller', 'Thriller'),
+        ('other', 'Other'),
     )
 
     title = models.CharField(max_length=100)
