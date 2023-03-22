@@ -32,11 +32,11 @@ created Serialzer for each Model in serializers.py
 
 CHECKLIST ITEMS COMPLETED:
 * list all books
+* retrieve details about a book
 
 CHECKLIST ITEMS STILL TO DO:
 * list all featured books
 * create a book
-* retrieve details about a book
 * search books by author or title
 * see a list of all the books they are tracking and their statuses
 * mark a book as want to read, reading, or finished
