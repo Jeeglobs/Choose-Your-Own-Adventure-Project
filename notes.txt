@@ -1,0 +1,30 @@
+created .gitignore and .env
+installed django and drf
+
+***********************************************
+***********************************************
+-- did NOT install pygments -- will I need it?
+***********************************************
+***********************************************
+
+ran: django-admin startproject config .
+added rest_framework to INSTALLED_APPS in config/settings.py
+
+ran: pipenv install django-environ
+added import environ and import os to settings.py
+-- did NOT finish settings setup yet. see:
+    https://django-environ.readthedocs.io/en/latest/quickstart.html
+-- DID finish settings setup for now.
+
+ran: pipenv install django-extensions
+added django_extensions to INSTALLED_APPS in settings.py
+
+ran: python manage.py startapp cover
+
+created User Model and migrated
+created Author Model and migrated
+created Tracker Model and migrated
+-- updated admin.py file
+
+created core/serializers.py file
+created Serialzer for each Model in serializers.py
