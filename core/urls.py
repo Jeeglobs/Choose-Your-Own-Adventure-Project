@@ -6,6 +6,7 @@ urlpatterns = [
     path('core/', views.BookList.as_view()),
     path('core/<int:pk>', views.BookDetail.as_view()),
     path('core/book-create', views.BookCreate.as_view()),
+    path('core/book-edit-delete/<int:pk>', views.BookEditDelete.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

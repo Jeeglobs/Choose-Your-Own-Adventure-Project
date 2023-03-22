@@ -39,20 +39,20 @@ CHECKLIST ITEMS COMPLETED:
 * retrieve details about a book
 * create a book
     PROBLEMS:   user cannot add a new author
-                user can set 'featured'
+                user CAN set 'featured'
 * list all featured books
 * search books by author or title
+* ADMIN ONLY -- update a book (including 'featured' status)
+* ADMIN ONLY -- delete a book (this should not delete notes)
 
 CHECKLIST ITEMS STILL TO DO:
-* create an author???
 * see a list of all the books they are tracking and their statuses
 * mark a book as want to read, reading, or finished
 * update the want to read/reading/finished status of a book
 * see a list of all their books by status
-* ADMIN ONLY -- update a book (including 'featured' status)
-* ADMIN ONLY -- delete a book (this should not delete notes)
 
 OPTIONAL ITEMS STILL TO DO:
+* create an author???
 * retrieve all their own private notes for a book
 * retrieve all publice notes for a book
 * create a note for a book

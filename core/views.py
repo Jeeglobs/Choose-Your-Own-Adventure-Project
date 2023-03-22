@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics, filters
+from rest_framework.permissions import IsAdminUser
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import User, Book, Author, Tracker
@@ -22,3 +23,9 @@ class BookDetail(generics.RetrieveAPIView):
 class BookCreate(generics.CreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+
+
+class BookEditDelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
+    permission_classes = [IsAdminUser]
