@@ -7,7 +7,7 @@ from .models import User, Book, Author, Tracker
 from .serializers import UserSerializer, BookSerializer, AuthorSerializer, TrackerSerializer
 
 
-class BookList(generics.ListAPIView):
+class BookListCreate(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     filter_backends = [DjangoFilterBackend, filters.SearchFilter]
@@ -16,11 +16,6 @@ class BookList(generics.ListAPIView):
 
 
 class BookDetail(generics.RetrieveAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-
-
-class BookCreate(generics.CreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 

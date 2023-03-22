@@ -3,9 +3,8 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from core import views
 
 urlpatterns = [
-    path('core/', views.BookList.as_view()),
+    path('core/', views.BookListCreate.as_view()),
     path('core/<int:pk>', views.BookDetail.as_view()),
-    path('core/book-create', views.BookCreate.as_view()),
     path('core/book-edit-delete/<int:pk>', views.BookEditDelete.as_view()),
 ]
 
