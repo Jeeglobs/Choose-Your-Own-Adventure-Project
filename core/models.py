@@ -21,6 +21,7 @@ class Book(models.Model):
         ('horror', 'Horror'),
         ('mystery', 'Mystery'),
         ('philosophy', 'Philosophy'),
+        ('religion', 'Religion'),
         ('romance', 'Romance'),
         ('thriller', 'Thriller'),
     )
@@ -37,8 +38,9 @@ class Book(models.Model):
 
     class Meta:
         constraints = [
-            UniqueConstraint(fields=['author', 'title'],
-                             name='unique_constraint')
+            UniqueConstraint(
+                fields=['author', 'title'],
+                name='unique_constraint'),
         ]
 
     def __str__(self):
@@ -52,3 +54,21 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Tracker(models.Model):
+    CHOICES = (
+        ('want to read', 'Want to Read'),
+        ('reading', 'Reading'),
+        ('finished', 'Finished'),
+    )
+
+    user = models.ForeignKey(
+        to='User',
+        on_delete=models.CASCADE,
+    )
+    book = models.ForeignKey(
+        to='Book',
+        on_delete=models.CASCADE,
+    )
+    status = models.CharField(choices=CHOICES, max_length=100)

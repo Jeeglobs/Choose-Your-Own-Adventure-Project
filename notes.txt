@@ -1,7 +1,10 @@
 created .gitignore and .env
-installed django and 
+installed django and drf
+
+***********************************************
 ***********************************************
 -- did NOT install pygments -- will I need it?
+***********************************************
 ***********************************************
 
 ran: django-admin startproject config .
@@ -20,5 +23,7 @@ ran: python manage.py startapp cover
 
 created User Model and migrated
 created Author Model and migrated
+created Tracker Model and migrated
+-- updated admin.py file
 
 created core/serializers.py file
