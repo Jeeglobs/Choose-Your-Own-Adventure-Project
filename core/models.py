@@ -46,6 +46,8 @@ class Book(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
+    dob = models.DateField(blank=True, null=True)
+    bio = models.TextField(max_length=5000, blank=True, null=True)
 
     def __str__(self):
         return self.name
