@@ -34,7 +34,7 @@ class Book(models.Model):
         to='Author',
         on_delete=models.CASCADE,
     )
-    date_published = models.DateField(blank=True, null=True)
+    year_published = models.PositiveIntegerField(blank=True, null=True)
     genre = models.CharField(choices=CHOICES, max_length=100)
     blurb = models.TextField(max_length=500, blank=True, null=True)
     featured = models.BooleanField(default=False)
