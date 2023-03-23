@@ -15,27 +15,28 @@ class BookListCreate(generics.ListCreateAPIView):
     filterset_fields = ['featured']
     search_fields = ['title', 'author__name']
 
+    # def create(self, request, *args, **kwargs):
+    #     serializer = self.get_serializer(data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     self.perform_create(serializer)
+    #     headers = self.get_success_headers(serializer.data)
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
 
 class BookEditDelete(generics.RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
-    def get_permission(self):
+    def get_permissions(self):
         if self.request.method == 'GET':
             return []
         else:
             return [IsAdminUser()]
 
 
-# class BookDetail(generics.RetrieveAPIView):
-#     queryset = Book.objects.all()
-#     serializer_class = BookSerializer
-
-
-# class BookEditDelete(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Book.objects.all()
-#     serializer_class = BookSerializer
-#     permission_classes = [IsAdminUser]
+class UserListCreate(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 # need to make it so user can only view/create for themselves NOT other users

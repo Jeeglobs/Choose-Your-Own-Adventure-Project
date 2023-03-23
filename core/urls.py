@@ -9,6 +9,7 @@ urlpatterns = [
     path('core/tracker', views.TrackerListCreate.as_view()),
     path('core/tracker-edit-delete/<int:pk>',
          views.TrackerEditDelete.as_view()),
+    path('core/user', views.UserListCreate.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
