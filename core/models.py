@@ -100,7 +100,7 @@ class Tracker(models.Model):
 
 
 class FeaturedBook(models.Model):
-    book = models.ForeignKey(
+    book = models.OneToOneField(
         to='Book',
         on_delete=models.CASCADE,
         related_name='featured_book_instances'

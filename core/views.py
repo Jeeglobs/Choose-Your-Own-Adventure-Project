@@ -64,6 +64,9 @@ class TrackerListCreate(generics.ListCreateAPIView):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['status']
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
 
 # need to make it so user can only view/edit/delete THEIR trackers, NOT others
 class TrackerEditDelete(generics.RetrieveUpdateDestroyAPIView):
@@ -77,6 +80,17 @@ class FeaturedBookListCreate(generics.ListCreateAPIView):
 
     def get_permissions(self):
         if self.request.method == 'POST':
+            return []
+        else:
+            return [IsAdminUser()]
+
+
+class FeaturedBookEditDelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset = FeaturedBook.objects.all()
+    serializer_class = FeaturedBookSerializer
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
             return []
         else:
             return [IsAdminUser()]
