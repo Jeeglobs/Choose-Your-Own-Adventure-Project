@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Book, Author, Tracker
+from .models import User, Book, Author, Tracker, FeaturedBook
 
 
 class TrackerSerializer(serializers.ModelSerializer):
@@ -49,3 +49,11 @@ class AuthorSerializer(serializers.ModelSerializer):
             'dob',
             'bio',
         )
+
+
+class FeaturedBookSerializer(serializers.ModelSerializer):
+    book = serializers.StringRelatedField()
+
+    class Meta:
+        model = FeaturedBook
+        fields = ('book',)

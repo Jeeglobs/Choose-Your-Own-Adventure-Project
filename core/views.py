@@ -3,8 +3,8 @@ from rest_framework import generics, filters
 from rest_framework.permissions import IsAdminUser
 from django_filters.rest_framework import DjangoFilterBackend
 
-from .models import User, Book, Author, Tracker
-from .serializers import UserSerializer, BookSerializer, AuthorSerializer, TrackerSerializer
+from .models import User, Book, Author, Tracker, FeaturedBook
+from .serializers import UserSerializer, BookSerializer, AuthorSerializer, TrackerSerializer, FeaturedBookSerializer
 
 
 class UserListCreate(generics.ListCreateAPIView):
@@ -69,3 +69,14 @@ class TrackerListCreate(generics.ListCreateAPIView):
 class TrackerEditDelete(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tracker.objects.all()
     serializer_class = TrackerSerializer
+
+
+class FeaturedBookListCreate(generics.ListCreateAPIView):
+    queryset = FeaturedBook.objects.all()
+    serializer_class = FeaturedBookSerializer
+
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return []
+        else:
+            return [IsAdminUser()]
