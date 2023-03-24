@@ -12,6 +12,7 @@ class Book(models.Model):
         ('art', 'Art'),
         ('biography', 'Biography'),
         ('business', 'Business'),
+        ('dystopian fiction', 'Dystopian Fiction'),
         ('classics', 'Classics'),
         ('education', 'Education'),
         ('fantasy', 'Fantasy'),
@@ -36,7 +37,7 @@ class Book(models.Model):
     )
     year_published = models.PositiveIntegerField(blank=True, null=True)
     genre = models.CharField(choices=CHOICES, max_length=100)
-    blurb = models.TextField(max_length=500, blank=True, null=True)
+    blurb = models.TextField(max_length=2000, blank=True, null=True)
     featured = models.BooleanField(default=False)
 
     class Meta:
@@ -45,6 +46,7 @@ class Book(models.Model):
                 fields=['author', 'title'],
                 name='book_constraint'),
         ]
+        ordering = ['title']
 
     def __str__(self):
         return self.title
@@ -53,7 +55,7 @@ class Book(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=100)
     dob = models.DateField(blank=True, null=True)
-    bio = models.TextField(max_length=500, blank=True, null=True)
+    bio = models.TextField(max_length=2000, blank=True, null=True)
 
     def __str__(self):
         return self.name
