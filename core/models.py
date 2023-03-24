@@ -12,8 +12,8 @@ class Book(models.Model):
         ('art', 'Art'),
         ('biography', 'Biography'),
         ('business', 'Business'),
-        ('dystopian fiction', 'Dystopian Fiction'),
         ('classics', 'Classics'),
+        ('dystopian fiction', 'Dystopian Fiction'),
         ('education', 'Education'),
         ('fantasy', 'Fantasy'),
         ('graphic novel', 'Graphic Novel'),
@@ -41,12 +41,12 @@ class Book(models.Model):
     featured = models.BooleanField(default=False)
 
     class Meta:
+        ordering = ['title']
         constraints = [
             models.UniqueConstraint(
                 fields=['author', 'title'],
                 name='book_constraint'),
         ]
-        ordering = ['title']
 
     def __str__(self):
         return self.title
@@ -56,6 +56,9 @@ class Author(models.Model):
     name = models.CharField(max_length=100)
     dob = models.DateField(blank=True, null=True)
     bio = models.TextField(max_length=2000, blank=True, null=True)
+
+    class Meta:
+        ordering = ['name']
 
     def __str__(self):
         return self.name

@@ -4,12 +4,13 @@ from core import views
 
 urlpatterns = [
     path('core/books/', views.BookListCreate.as_view()),
-    # path('core/<int:pk>', views.BookDetail.as_view()),
-    path('core/books/<int:pk>', views.BookEditDelete.as_view()),
+    path('core/books/<int:pk>/', views.BookEditDelete.as_view()),
+    path('core/authors/', views.AuthorListCreate.as_view()),
+    path('core/authors/<int:pk>/', views.AuthorEditDelete.as_view()),
     path('core/trackers/', views.TrackerListCreate.as_view()),
-    path('core/trackers/<int:pk>',
+    path('core/trackers/<int:pk>/',
          views.TrackerEditDelete.as_view()),
-    path('core/users', views.UserListCreate.as_view()),
+    path('core/users/', views.UserListCreate.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -7,6 +7,11 @@ from .models import User, Book, Author, Tracker
 from .serializers import UserSerializer, BookSerializer, AuthorSerializer, TrackerSerializer
 
 
+class UserListCreate(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
 # need to make it so that ONLY admins can set as 'featured' when creating
 class BookListCreate(generics.ListCreateAPIView):
     queryset = Book.objects.all()
@@ -34,9 +39,22 @@ class BookEditDelete(generics.RetrieveUpdateDestroyAPIView):
             return [IsAdminUser()]
 
 
-class UserListCreate(generics.ListCreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+class AuthorListCreate(generics.ListCreateAPIView):
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name']
+
+
+class AuthorEditDelete(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Author.objects.all()
+    serializer_class = AuthorSerializer
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return []
+        else:
+            return [IsAdminUser()]
 
 
 # need to make it so user can only view/create for themselves NOT other users
