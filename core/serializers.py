@@ -33,7 +33,7 @@ class BookSerializer(serializers.ModelSerializer):
         fields = (
             'title',
             'author',
-            'year_published',
+            '_published',
             'genre',
             'blurb',
             'featured',

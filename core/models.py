@@ -90,6 +90,9 @@ class Tracker(models.Model):
                                     name='tracker_constraint')
         ]
 
+    def __str__(self):
+        return f'{self.user.username} -- {self.book.title} -- {self.status}'
+
 
 # class Notes(models.Model):
 #     pass
