@@ -28,3 +28,33 @@ created Tracker Model and migrated
 
 created core/serializers.py file
 created Serialzer for each Model in serializers.py
+
+ran: pipenv install django-filter
+added 'django-filters' to INSTALLED_APPS
+added (from django_filters.rest_framework import DjangoFilterBackend) to views.py
+
+
+CHECKLIST ITEMS COMPLETED:
+* list all books
+* retrieve details about a book
+* create a book
+    PROBLEMS:   user cannot add a new author
+                user CAN set 'featured'
+* list all featured books
+* search books by author or title
+* ADMIN ONLY -- update a book (including 'featured' status)
+* ADMIN ONLY -- delete a book (this should not delete notes)
+*******************************************************************************
+*******************************************************************************
+* see a list of all the books they are tracking and their statuses
+* mark a book as want to read, reading, or finished
+* update the want to read/reading/finished status of a book
+* see a list of all their books by status
+    PROBLEMS:   need to add permissions for the four above
+
+OPTIONAL ITEMS STILL TO DO:
+* create an author???
+* retrieve all their own private notes for a book
+* retrieve all publice notes for a book
+* create a note for a book
+* edit their own notes

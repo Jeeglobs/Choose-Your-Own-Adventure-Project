@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from django.db.models.constraints import UniqueConstraint
 
 
 class User(AbstractUser):
@@ -14,7 +13,9 @@ class Book(models.Model):
         ('biography', 'Biography'),
         ('business', 'Business'),
         ('classics', 'Classics'),
+        ('dystopian fiction', 'Dystopian Fiction'),
         ('education', 'Education'),
+        ('fantasy', 'Fantasy'),
         ('graphic novel', 'Graphic Novel'),
         ('history', 'History'),
         ('horror', 'Horror'),
@@ -34,16 +35,17 @@ class Book(models.Model):
         to='Author',
         on_delete=models.CASCADE,
     )
-    date_published = models.DateField(blank=True, null=True)
+    year_published = models.PositiveIntegerField(blank=True, null=True)
     genre = models.CharField(choices=CHOICES, max_length=100)
-    blurb = models.TextField(max_length=500, blank=True, null=True)
+    blurb = models.TextField(max_length=2000, blank=True, null=True)
     featured = models.BooleanField(default=False)
 
     class Meta:
+        ordering = ['title']
         constraints = [
-            UniqueConstraint(
+            models.UniqueConstraint(
                 fields=['author', 'title'],
-                name='unique_constraint'),
+                name='book_constraint'),
         ]
 
     def __str__(self):
@@ -53,7 +55,15 @@ class Book(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=100)
     dob = models.DateField(blank=True, null=True)
-    bio = models.TextField(max_length=500, blank=True, null=True)
+    bio = models.TextField(max_length=2000, blank=True, null=True)
+
+    class Meta:
+        ordering = ['name']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['name'],
+                name='author_constraint'),
+        ]
 
     def __str__(self):
         return self.name
@@ -69,12 +79,40 @@ class Tracker(models.Model):
     user = models.ForeignKey(
         to='User',
         on_delete=models.CASCADE,
+        related_name='tracker_instances'
     )
     book = models.ForeignKey(
         to='Book',
         on_delete=models.CASCADE,
+        related_name='tracker_instances'
     )
     status = models.CharField(choices=CHOICES, max_length=100)
+
+    class Meta:
+
+        constraints = [
+            models.UniqueConstraint(fields=['user', 'book'],
+                                    name='tracker_constraint')
+        ]
+
+    def __str__(self):
+        return f'{self.user.username} -- {self.book.title} -- {self.status}'
+
+
+class FeaturedBook(models.Model):
+    book = models.OneToOneField(
+        to='Book',
+        on_delete=models.CASCADE,
+        related_name='featured_book_instances'
+    )
+
+    class Meta:
+
+        constraints = [
+            models.UniqueConstraint(
+                fields=['book'],
+                name='featured_book_constraint'),
+        ]
 
 
 # class Notes(models.Model):
