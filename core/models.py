@@ -59,6 +59,11 @@ class Author(models.Model):
 
     class Meta:
         ordering = ['name']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['name'],
+                name='author_constraint'),
+        ]
 
     def __str__(self):
         return self.name
