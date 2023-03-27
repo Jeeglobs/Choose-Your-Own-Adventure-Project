@@ -99,21 +99,5 @@ class Tracker(models.Model):
         return f'{self.user.username} -- {self.book.title} -- {self.status}'
 
 
-class FeaturedBook(models.Model):
-    book = models.OneToOneField(
-        to='Book',
-        on_delete=models.CASCADE,
-        related_name='featured_book_instances'
-    )
-
-    class Meta:
-
-        constraints = [
-            models.UniqueConstraint(
-                fields=['book'],
-                name='featured_book_constraint'),
-        ]
-
-
 # class Notes(models.Model):
 #     pass

@@ -11,8 +11,6 @@ urlpatterns = [
     path('core/trackers/', views.TrackerListCreate.as_view()),
     path('core/trackers/<int:pk>/',
          views.TrackerEditDelete.as_view()),
-    path('core/featured/', views.FeaturedBookListCreate.as_view()),
-    path('core/featured/<int:pk>', views.FeaturedBookEditDelete.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
